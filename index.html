@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LarpCraft</title>
+<meta name="description" content="LarpCraft is a small indie studio making Roblox games, built with Claude Code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cobalt: #2b3fe0;
+    --cobalt-deep: #1d2bb0;
+    --sun: #ffd23f;
+    --coral: #ff6b8b;
+    --mint: #3fd6a4;
+    --paper: #fbfaf5;
+    --ink: #17163a;
+    --muted: #4c4a6e;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--sun);
+    outline-offset: 3px;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero: the one loud moment */
+  .hero {
+    background-color: var(--cobalt);
+    background-image: radial-gradient(circle at 50% 50%, var(--cobalt-deep) 0 9px, transparent 10px);
+    background-size: 36px 36px;
+    color: var(--paper);
+    padding: 28px 0 96px;
+    overflow: hidden;
+  }
+  .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .nav .mark { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em; text-decoration: none; }
+  .nav a.contact { text-decoration: none; font-weight: 600; border-bottom: 2px solid var(--sun); padding-bottom: 2px; }
+  .wordmark {
+    font-weight: 800;
+    font-size: clamp(4.2rem, 17vw, 12.5rem);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    margin: 72px 0 0;
+    color: var(--paper);
+    text-shadow: 6px 6px 0 var(--ink);
+  }
+  .wordmark span { display: block; }
+  .wordmark span:last-child { color: var(--sun); }
+  .tagline {
+    max-width: 34ch;
+    font-size: clamp(1.25rem, 3.2vw, 1.6rem);
+    line-height: 1.35;
+    font-weight: 600;
+    margin: 36px 0 0;
+  }
+  .hero .btn { margin-top: 32px; }
+  .btn {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+
+  section { padding: 88px 0 0; }
+  h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .lede { color: var(--muted); max-width: 60ch; margin: 0 0 40px; }
+
+  /* What we make: stacked bricks of different widths */
+  .bricks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .brick {
+    display: grid;
+    grid-template-columns: minmax(150px, 220px) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 26px;
+    border-radius: 6px;
+    border: 3px solid var(--ink);
+  }
+  .brick h3 { margin: 0; font-size: 1.4rem; line-height: 1.2; }
+  .brick p { margin: 0; max-width: 56ch; }
+  .brick.sun { background: var(--sun); width: 100%; }
+  .brick.coral { background: var(--coral); width: 92%; }
+  .brick.mint { background: var(--mint); width: 84%; }
+
+  /* How we build */
+  .build { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .tools { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--ink); }
+  .tools li { padding: 18px 0; border-bottom: 1px solid #d9d7cc; }
+  .tools strong { display: block; font-size: 1.15rem; }
+  .tools span { color: var(--muted); }
+
+  /* Contact */
+  .contact-block {
+    margin-top: 88px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 0;
+  }
+  .contact-block h2 { color: var(--paper); }
+  .contact-block p { color: #cfcde6; max-width: 52ch; margin: 0 0 28px; }
+  .email { font-weight: 800; font-size: clamp(1.4rem, 5vw, 2.2rem); color: var(--sun); text-decoration: none; word-break: break-word; }
+  .email:hover { text-decoration: underline; }
+  footer { background: var(--ink); color: #9f9cc4; font-size: .95rem; padding: 0 0 40px; }
+
+  @media (max-width: 720px) {
+    body { font-size: 1.0625rem; }
+    .wrap { padding: 0 16px; }
+    .hero { padding-bottom: 72px; }
+    .wordmark { margin-top: 56px; text-shadow: 4px 4px 0 var(--ink); }
+    .brick { grid-template-columns: 1fr; gap: 8px; }
+    .brick.coral, .brick.mint { width: 100%; }
+    .build { grid-template-columns: 1fr; gap: 24px; }
+    section { padding-top: 64px; }
+    .contact-block { margin-top: 64px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="mark" href="#">LarpCraft</a>
+      <a class="contact" href="#contact">Contact</a>
+    </nav>
+    <h1 class="wordmark"><span>Larp</span><span>Craft</span></h1>
+    <p class="tagline">A small indie studio making Roblox games. We build fast, ship often, and test everything with real players.</p>
+    <a class="btn" href="mailto:ost@larpcraft.xyz">Email the studio</a>
+  </div>
+</header>
+
+<main>
+  <section id="games">
+    <div class="wrap">
+      <h2>What we make</h2>
+      <p class="lede">We focus on the genres Roblox players come back to every day. Our first titles are in development now.</p>
+      <ul class="bricks">
+        <li class="brick sun">
+          <h3>Simulator games</h3>
+          <p>Progression loops where every session moves you forward: train, upgrade, rebirth, and climb the leaderboard.</p>
+        </li>
+        <li class="brick coral">
+          <h3>Collecting games</h3>
+          <p>Gacha-style pulls, rare finds, and trading, designed around fair odds and things worth showing off.</p>
+        </li>
+        <li class="brick mint">
+          <h3>Original characters</h3>
+          <p>Custom 3D characters and effects, modeled in Blender and rigged for Roblox.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap build">
+      <div>
+        <h2>How we build</h2>
+        <p class="lede">We're a small team, so we use AI to do the work of a much bigger one. Claude is part of every step, from writing game code to building 3D assets.</p>
+      </div>
+      <ul class="tools">
+        <li><strong>Claude Code</strong><span>Writes and reviews our Luau game code, synced into Roblox Studio with Rojo.</span></li>
+        <li><strong>Claude in Roblox Studio</strong><span>Connected through MCP so Claude can build and test directly in our places.</span></li>
+        <li><strong>Claude in Blender</strong><span>Drives our modeling pipeline for characters and props.</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<div class="contact-block" id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>Players, creators, and partners are all welcome. We read everything.</p>
+    <a class="email" href="mailto:ost@larpcraft.xyz">ost@larpcraft.xyz</a>
+  </div>
+</div>
+<footer>
+  <div class="wrap">© 2026 LarpCraft</div>
+</footer>
+
+</body>
+</html>
