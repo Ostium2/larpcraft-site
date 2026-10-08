@@ -136,8 +136,12 @@
   .card {
     border: 3px solid var(--ink);
     border-radius: 8px;
-    padding: 26px 26px 28px;
+    overflow: hidden;
   }
+  .card .art { margin: 0; position: relative; border-bottom: 3px solid var(--ink); background: var(--ink); }
+  .card .art img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .card .art figcaption { position: absolute; left: 12px; bottom: 12px; }
+  .card .body { padding: 22px 26px 28px; }
   .card.coral { background: var(--coral); }
   .card.mint { background: var(--mint); }
   .card h3 { font-size: 1.6rem; line-height: 1.15; margin: 14px 0 4px; }
@@ -262,16 +266,28 @@
 
       <div class="more">
         <article class="card coral">
-          <span class="badge">In development</span>
-          <h3>Nest Raiders</h3>
-          <p class="genre">Steal and defend</p>
-          <p>Slip into a guarded nest, grab the prize, and sprint it home before its guardian catches you. Every prize you bring back earns for you, so defend your own nest from raiders who want it.</p>
+          <figure class="art">
+            <img src="img/nest-raiders-concept.jpg" width="1200" height="800" loading="lazy" alt="Concept art: a blocky player sprints downhill hugging a glowing golden egg while a startled pink owl guardian chases them from its nest">
+            <figcaption class="badge">Concept art</figcaption>
+          </figure>
+          <div class="body">
+            <span class="badge">In development</span>
+            <h3>Nest Raiders</h3>
+            <p class="genre">Steal and defend</p>
+            <p>Slip into a guarded nest, grab the prize, and sprint it home before its guardian catches you. Every prize you bring back earns for you, so defend your own nest from raiders who want it.</p>
+          </div>
         </article>
         <article class="card mint">
-          <span class="badge">In development</span>
-          <h3>Grow a Hero</h3>
-          <p class="genre">Summon and climb</p>
-          <p>Summon heroes at magic gates, put them to work on your plot, and train them up. Then send them up the Tower one floor at a time, and fuse heroes to pass on their skills.</p>
+          <figure class="art">
+            <img src="img/grow-a-hero-concept.jpg" width="1200" height="800" loading="lazy" alt="Concept art: a young caped hero with a wooden sword steps out of a glowing stone gate, with a tall tower of floating floors rising behind">
+            <figcaption class="badge">Concept art</figcaption>
+          </figure>
+          <div class="body">
+            <span class="badge">In development</span>
+            <h3>Grow a Hero</h3>
+            <p class="genre">Summon and climb</p>
+            <p>Summon heroes at magic gates, put them to work on your plot, and train them up. Then send them up the Tower one floor at a time, and fuse heroes to pass on their skills.</p>
+          </div>
         </article>
       </div>
     </div>
